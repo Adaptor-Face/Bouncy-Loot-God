@@ -5,6 +5,14 @@ from BouncyLootGod.archi_data import item_id_to_name, loc_name_to_id, item_name_
 from BouncyLootGod.loot_pools import pathname, unique_shield_def_names, unique_grenade_def_names, unique_relic_def_names
 from mods_base import Game
 
+if Game.get_current().name == "TPS":
+    rarity_dict = { 1: "Common", 2: "Uncommon", 3: "Rare", 4: "VeryRare", 5: "Legendary", 6: "Glitch", 999: "Unique" }
+    item_dict = { "WillowShield": "Shield", "WillowGrenadeMod": "GrenadeMod", "WillowClassMod": "ClassMod", "WillowArtifact": "Oz Kit" }
+    weapon_dict = { 0: "Pistol", 1: "Shotgun", 2: "SMG", 3: "SniperRifle", 4: "AssaultRifle", 5: "RocketLauncher", 6: "Laser" }
+else:
+    rarity_dict = { 1: "Common", 2: "Uncommon", 3: "Rare", 4: "VeryRare", 5: "Legendary", 6: "Seraph", 7: "Rainbow", 500: "Pearlescent",998: "E-Tech", 999: "Unique" }
+    item_dict = { "WillowShield": "Shield", "WillowGrenadeMod": "GrenadeMod", "WillowClassMod": "ClassMod", "WillowArtifact": "Relic" }
+    weapon_dict = { 0: "Pistol", 1: "Shotgun", 2: "SMG", 3: "SniperRifle", 4: "AssaultRifle", 5: "RocketLauncher" }
 def get_weap_red_text(definition_data):
     try:
         title_part = definition_data.TitlePartDefinition
@@ -42,7 +50,6 @@ def is_etech(definition_data):
     # (if you want to, could change to check the Barrel)
     return False
 
-rarity_dict = { 1: "Common", 2: "Uncommon", 3: "Rare", 4: "VeryRare", 5: "Legendary", 6: "Seraph", 7: "Rainbow", 500: "Pearlescent", 501: "Glitch", 998: "E-Tech", 999: "Unique" }
 weak_globals: unreal.WeakPointer = unreal.WeakPointer()
 def get_rarity(inv_item):
     # adapted from equip_locker
@@ -58,9 +65,6 @@ def get_rarity(inv_item):
     # handle Pearlescent
     if inv_item.Class.Name == "WillowWeapon" and rarity == 0 and inv_item.RarityLevel == 500:
         rarity = 500
-    # handle Glitch
-    if inv_item.Class.Name == "WillowWeapon" and rarity == 6 and inv_item.RarityLevel == 501:
-        rarity = 501
     if rarity == 3 or rarity == 4:
         # handle E-Tech
         if is_etech(inv_item.DefinitionData):
@@ -95,12 +99,6 @@ def get_rarity(inv_item):
         return "unknown"
     return rarity_str
 
-if Game.get_current().name == "TPS":
-    item_dict = { "WillowShield": "Shield", "WillowGrenadeMod": "GrenadeMod", "WillowClassMod": "ClassMod", "WillowArtifact": "Oz Kit" }
-    weapon_dict = { 0: "Pistol", 1: "Shotgun", 2: "SMG", 3: "SniperRifle", 4: "AssaultRifle", 5: "RocketLauncher", 6: "Laser" }
-else:
-    item_dict = { "WillowShield": "Shield", "WillowGrenadeMod": "GrenadeMod", "WillowClassMod": "ClassMod", "WillowArtifact": "Relic" }
-    weapon_dict = { 0: "Pistol", 1: "Shotgun", 2: "SMG", 3: "SniperRifle", 4: "AssaultRifle", 5: "RocketLauncher" }
 
 def get_item_type(inv_item):
     blg = get_globals()
