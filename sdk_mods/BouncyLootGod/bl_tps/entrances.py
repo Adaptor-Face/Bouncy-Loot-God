@@ -216,7 +216,7 @@ travel_targets = {
     "The Nexus":                          "GD_Ma_FastTravelStations.Ma_Nexus_FT",
     "Titan Industrial Facility":          "GD_FastTravelStations.DahlFactory",
     "Titan Robot Production Plant":       "GD_FastTravelStations.DahlFactoryBossStart",
-    "Triton Flats":                       "GD_FastTravelStations.MoonCore",
+    "Triton Flats":                       "GD_FastTravelStations.MoonSurfaceFastTravel",
     "Tycho's Ribs":                       "GD_FastTravelStations.AccessShaft", 
     "Veins of Helios":                    "GD_LevelTravelStations.Zone_3.InnerHullToCentralTerminal",
     "Vorago Solitude":                    "GD_FastTravelStations.DigSite",
