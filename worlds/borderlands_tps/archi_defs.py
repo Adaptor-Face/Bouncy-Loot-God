@@ -477,7 +477,7 @@ loc_data_table = {
     "Symbol SerenitysWaste: Celestial Beltway":                 BLTPSArchiData("Serenity's Waste", 3, jump_z_req=250),
     "Symbol SerenitysWaste: Oz Kit Tutorial Roof":              BLTPSArchiData("Serenity's Waste", 3),
     "Symbol SubLevel13: Under Elevator":                        BLTPSArchiData("Sub-Level 13", 14, req_locations=["Quest: Sub-Level 13"]),
-    "Symbol Subconscious: Terrorhead Gorge":                    BLTPSArchiData("Subconscious", 30, jump_z_req=270),
+    "Symbol Subconscious: Terrorhead Gorge":                    BLTPSArchiData("Subconscious", 30, jump_z_req=270, req_locations=["Quest: The Psychology of a Claptrap"]),
     "Symbol Subconscious: Sub-Subconscious":                    BLTPSArchiData("Subconscious", 30, jump_z_req=340),
     "Symbol Subconscious: Penland Heights":                     BLTPSArchiData("Subconscious", 30, jump_z_req=340, req_groups=["Oz Kit"]),
     "Symbol Cortex: Above Start":                               BLTPSArchiData("The Cortex", 30, jump_z_req=850),
