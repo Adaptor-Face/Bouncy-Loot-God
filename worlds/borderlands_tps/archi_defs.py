@@ -866,7 +866,7 @@ loc_data_table = {
     "Challenge Titan Industrial Facility: Cult of the Vault":                       BLTPSArchiData("Titan Industrial Facility", 12, tags=["reg-based"], req_locations=["Symbol TitanIndustrialFacility: Sub-Level 13 Entrance"]),
     "Challenge Titan Robot Production Plant: Cult of the Vault":                    BLTPSArchiData("Titan Robot Production Plant", 13, tags=["reg-based"], req_locations=["Symbol TitanRobotPlant: Transit Area, Lower"]),
     "Challenge Titan Robot Production Plant: Turret Engineer":                      BLTPSArchiData("Titan Robot Production Plant", 13, tags=["reg-based"]),
-    "Challenge Titan Robot Production Plant: I Can Do This Alone":                  BLTPSArchiData("Titan Robot Production Plant", 13, tags=["reg-based"]),
+    "Challenge Titan Robot Production Plant: I Can Do This Alone":                  BLTPSArchiData("Titan Robot Production Plant", 13, tags=["reg-based", missable]),
     "Challenge Regolith Range: Dead Set":                                           BLTPSArchiData("Regolith Range", 3, tags=["reg-based"]),
     "Challenge Regolith Range: Dead Weight":                                        BLTPSArchiData("Regolith Range", 3, tags=["reg-based", "missable"]),
     "Challenge Regolith Range: Insulated":                                          BLTPSArchiData("Regolith Range", 3, tags=["reg-based"]),
