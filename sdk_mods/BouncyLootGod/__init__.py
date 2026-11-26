@@ -9,7 +9,7 @@
 
 import unrealsdk
 import unrealsdk.unreal as unreal
-from mods_base import build_mod, ButtonOption, SpinnerOption, SliderOption, get_pc, keybind, hook, ENGINE, ObjectFlags, Game, SETTINGS_DIR
+from mods_base import build_mod, ButtonOption, SpinnerOption, SliderOption, get_pc, keybind, hook, ENGINE, ObjectFlags, Game, SETTINGS_DIR, command
 from ui_utils import show_chat_message, show_hud_message
 from unrealsdk.hooks import Type, Block, prevent_hooking_direct_calls
 from networking import add_network_functions, host
@@ -405,7 +405,7 @@ def init_game_items_received():
             item_id = int(line.strip())
             handle_item_received(item_id, True)
 
-def fetch_settings():
+def fetch_settings(): #https://stackoverflow.com/questions/17667903/python-socket-receive-large-amount-of-data
     blg = get_globals()
     if not blg.is_archi_connected:
         return
@@ -1754,6 +1754,17 @@ def skip_generic_pizza_spawn(obj: unreal.UObject, args: unreal.WrappedStruct, re
 #     print(obj)
 #     print(args)
 #     # return Block
+@command("blg_debug_trap", description="Trigger a Trap")
+def cmd_debug_trap(args):
+    print(f"Triggering Trap: {args.trap_name}")
+    trigger_trap(f"Trap: {args.trap_name}", False)
+cmd_debug_trap.add_argument("trap_name", type=str)
+@command("blg_debug_spawn_trap", description="Trigger a Spawn Trap")
+def cmd_debug_spawn_trap(args):
+    print(f"Triggering Trap Spawn: {args.trap_name}")
+    trigger_spawn_trap(f"Trap Spawn: {args.trap_name}", False)
+cmd_debug_spawn_trap.add_argument("trap_name", type=str)
+
 
 
 mod_instance = build_mod(
